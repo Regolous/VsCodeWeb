@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,900;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFDD0;
+    position: absolute;
+    grid-area: sperm;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    min-height: 12vh;
+    background: #000;
+
+}
+.container{
+    position: relative;
+    width: 250px;
+    height: 1px;
+    display: grid;
+    grid-template-columns: repeat(16, 200px)
+    grid-template-rows: repeat(8,1fr);
+    gap: 20px;
+    grid-template-areas:
+    "negr negr2 sperm"
+    "elen elen elen";
+}
+.container .thumb li {
+    list-style: none;
+    top: 10%;
+    transform: translateY(-25%);
+    z-index: 1;
+    width: 175px;
+    height: 250px;
+    margin: 10px 0;
+    position:static;
+   
+}
+.thumb{
+    grid-area: sperm;
+}
+.button{
+    grid-area: negr;
+    width: 100px;
+    height: 50px;
+    background: #fff;
+    color:aqua;
+border-radius: 15px;
+}
