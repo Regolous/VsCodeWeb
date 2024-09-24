@@ -1,54 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,900;1,900&display=swap');
-
-* {
+{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    color: #FFFDD0;
-    position: absolute;
-    grid-area: sperm;
-}
-
-body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  section {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: right;
-    min-height: 12vh;
-    background: #000;
-
-}
-.container{
+    min-height: 100vh;
+    width: 100%;
+    background: #000
+      no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .form-box {
     position: relative;
-    width: 250px;
-    height: 1px;
-    display: grid;
-    grid-template-columns: repeat(16, 200px)
-    grid-template-rows: repeat(8,1fr);
-    gap: 20px;
-    grid-template-areas:
-    "negr negr2 sperm"
-    "elen elen elen";
-}
-.container .thumb li {
-    list-style: none;
-    top: 10%;
-    transform: translateY(-25%);
-    z-index: 1;
-    width: 175px;
-    height: 250px;
-    margin: 10px 0;
-    position:static;
-   
-}
-.thumb{
-    grid-area: sperm;
-}
-.button{
-    grid-area: negr;
-    width: 100px;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(208,240,192, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h2 {
+    font-size: 2em;
+    color: #98FB98;
+    text-align: center;
+  }
+  
+  .inputbox {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid #00416A;
+  }
+  
+  .inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #2A6478;
+    font-size: 1em;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  input:focus ~ label {
+    top: -5px;
+  }
+  input:valid ~ label {
+    top: -5px;
+  }
+  
+  .inputbox input {
+    width: 100%;
     height: 50px;
-    background: #fff;
-    color:aqua;
-border-radius: 15px;
-}
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: #00538A;
+  }
+  
+  .inputbox ion-icon {
+    position: absolute;
+    right: 8px;
+    color: #584942;
+    font-size: 1.2em;
+    top: 20px;
+  }
+  
+  button {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #1D334A;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+  }
