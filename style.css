@@ -83,7 +83,7 @@
     background: rgb(83, 127, 163);
     border: none;
     outline: none;
-    cursor: pointer;
+
     font-size: 1em;
     font-weight: 600;
     color: #b8c9ff;
@@ -91,8 +91,9 @@
     transition: 0.3s ease;
   }
 
-  button :hover{
-    background-color: green;
+  button:hover{
+
+    background-color: rgb(96, 159, 175);
     cursor: pointer;
-    color: #000;
+    color: #b8c9ff;
   }
