@@ -1,4 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap");
+:root{
+    --header-height:3.5rem;
+    --first-color: hsl(228, 85%, 63%);
+    --title-color: hsl(228, 18%, 16%);
+    --text-color: hsl(228, 8%, 56%);
+    --body-color: hsl(228, 100%, 99%);
+    --shadow-color: hsla(228, 80%, 4%, .1);
+    --body-font: "Nunito Sans", system-ui;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+    --tiny-font-size: .75rem;
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 1150px) {
+    :root {
+      --normal-font-size: 1rem;
+      --smaller-font-size: .813rem;
+    }
+}
 
 *{
     margin: 0;
@@ -14,18 +38,47 @@ ul {
 body {
     height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image: linear-gradient(black,gray);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: background-color .4s;
+}
+/*8====================================================================D*/
+body.dark-theme {
+    --first-color: hsl(228, 70%, 63%);
+    --title-color: hsl(228, 18%, 96%);
+    --text-color: hsl(228, 12%, 61%);
+    --body-color: hsl(228, 24%, 16%);
+    --shadow-color: hsla(228, 80%, 4%, .3);
 }
 
+.dark-theme .sidebar-content::-webkit-scrollbar{
+    background-color: hsl(228, 16%, 30%);
+}
+
+.dark-theme .sidebar-content::-webkit-scrollbar-thumb{
+    background-color: hsl(228, 16%, 40%);
+}
+/*8====================================================================D*/
 a {
     text-decoration: none;
 }
+
 button{
     cursor: pointer;
     border: none;
     background: none;
+}
+
+.btn{
+    all: unset;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .section{
@@ -69,23 +122,47 @@ button{
     color: rgba(0, 0, 0, 0.6);
 }
 
-header {
-    margin: 0 auto;
-    padding: 0 25px;
-   background-image: linear-gradient(rgb(255, 255, 255),#1d1d1d);
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    margin: .75rem;
 }
 
 header .navbar {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--body-color);
+    box-shadow: 0 2px 24px var(--shadow-color);
     display: flex;
-    padding: 20 px;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+    transition: background-color .4s ;
 }
 .navbar .navlogo .logotext{
-    color: rgb(255, 255, 255);
+    color: var(--first-color);
     font-size: var(--font-size-x1);
     font-weight: var(--font-weight-semibold);
 }
+.navbar .navlogo i{
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+
+.navbar .navlogo span{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.header-toggle {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+  }
 
 .navbar .navmenu{
     display: flex;
@@ -102,4 +179,145 @@ header .navbar {
 .navbar .navmenu .navlink:hover{
     background: #777777;
     color: #000;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0%;/*******************************************************************************************/
+    top: 0;
+    bottom: 0;
+    z-index: var(--z-fixed);
+    width: 288px;
+    background-color: var(--body-color);
+    box-shadow: 2px 0 24px var(--shadow-color);
+    padding-block: 1.5rem;
+    margin: .75rem;
+    border-radius: 1rem;
+    transition: left .4s, background-color .4s, width .4s;
+}
+
+.sidebar-container, 
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.sidebar-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar-user {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    column-gap: 1rem;
+    padding-left: 2rem;
+}
+  
+.sidebar-img {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    justify-items: center;
+}
+
+.sidebar-info h3 {
+    font-size: var(--normal-font-size);
+    color: var(--title-color);
+    transition: color .4s;
+}
+  
+.sidebar-info span {
+    font-size: var(--smaller-font-size);
+}
+  
+.sidebar-content {
+    overflow: hidden auto;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: .4rem;
+    background-color: hsl(228, 8%, 85%);
+}
+  
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: hsl(228, 8%, 75%);
+}
+  
+.sidebar-title {
+    width: max-content;
+    font-size: var(--tiny-font-size);
+    font-weight: var(--font-semi-bold);
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+  
+.sidebar-list, 
+.sidebar-actions {
+    display: grid;
+    row-gap: 1.5rem;
+}
+
+.sidebar-link {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    column-gap: 1rem;
+    color: var(--text-color);
+    padding-left: 2rem;
+    transition: color .4s, opacity .4s;
+}
+  
+.sidebar-link i {
+    font-size: 1.25rem;
+}
+  
+.sidebar-link span {
+    font-weight: var(--font-semi-bold);
+}
+  
+.sidebar-link:hover {
+    color: var(--first-color);
+}
+  
+.sidebar-actions {
+    margin-top: auto;
+}
+  
+.sidebar-actions button {
+    cursor: pointer;
+}
+  
+.sidebar-theme {
+    width: 100%;
+    font-size: 1.25rem;
+}
+  
+.sidebar-theme span {
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+}
+  
+.show-sidebar {
+    left: 0;
+}
+  
+.active-link {
+    color: var(--first-color);
+}
+  
+.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 20px;
+    background-color: var(--first-color);
 }
