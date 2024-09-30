@@ -44,8 +44,8 @@
       echo"you're connected";
   }
   
-      $login = htmlspecialchars($_POST['Login']);
-      $Password = htmlspecialchars($_POST['Password']);
+      $login = htmlspecialchars($_GET['Login']);
+      $Password = htmlspecialchars($_GET['Password']);
 
   $sql = "INSERT INTO userdata(Login,Password) VALUES ('$login', '$Password')";
   if(mysqli_query($conn, $sql)) echo "everything works correctly";
