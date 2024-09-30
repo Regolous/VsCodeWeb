@@ -1,14 +1,3 @@
-<?php
-$db_server = "localhost:3306";
-$db_user = "root";
-$db_pass = "";
-$db_name = "projectDB";
-
-$conn = "";
-
-$conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +12,15 @@ $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
       <div class="image-container"></div>
       <div class="form-box">
         <div class="form-value">
-          <form action="indexmain.html">
+          <form action="">
             <h2>Login</h2>
             <div class="inputbox">
-              <input type="email" required>
+              <input type="email" required name = "Login">
               <label for="">Email</label>
+
             </div>
             <div class="inputbox">
-              <input type="password" required>
+              <input type="password" required name = "Password">
               <label for="">Password</label>
             </div>
             <button>Log in</button>
@@ -39,6 +29,26 @@ $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
       </div>
     </section>
   </div>
+  <?php
 
+  $db_server = "localhost:3306";
+  $db_user = "root";
+  $db_pass = "";
+  $db_name = "projectdb";
+  
+  $conn = "";
+  
+  $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+  
+  if ($conn) {
+      echo"you're connected";
+  }
+  
+      $login = htmlspecialchars($_POST['Login']);
+      $Password = htmlspecialchars($_POST['Password']);
+
+  $sql = "INSERT INTO userdata(Login,Password) VALUES ('$login', '$Password')";
+  if(mysqli_query($conn, $sql)) echo "everything works correctly";
+  ?>
 </body>
 </html>
