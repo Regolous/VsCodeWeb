@@ -1,17 +1,16 @@
-const showSidebar = (toggleId, sidebarId, headerId, mainId) =>{
+const showSidebar = (toggleId, sidebarId) =>{
     const toggle = document.getElementById(toggleId),
-          sidebar = document.getElementById(sidebarId),
-          header = document.getElementById(headerId),
-          main = document.getElementById(mainId)
- 
-    if(toggle && sidebar && header && main){
-        toggle.addEventListener('click', ()=>{
+          sidebar = document.getElementById(sidebarId)
+  
+    if(toggle && sidebar){
+        toggle.addEventListener('click', button());
+        {
             sidebar.classList.toggle('show-sidebar')
-            header.classList.toggle('left-pd')
-            main.classList.toggle('left-pd')
-        })
+        }
     }
 }
+
+showSidebar('header-toggle','sidebar');
 
 const sidebarLink = document.querySelectorAll('.sidebar-list a')
 
