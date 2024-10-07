@@ -141,7 +141,7 @@ header .navbar {
     align-items: center;
     padding-inline: 1.5rem;
     border-radius: 1rem;
-    transition: background-color .4s ;
+    transition: var(gray) .4s ;
 }
 .navbar .navlogo .logotext{
     color: var(--first-color);
@@ -161,10 +161,16 @@ header .navbar {
 .header-toggle{
     font-size: 1.5rem;
     color: var(--title-color);
-    cursor: pointer;
-    border-radius: 50%;
-    transition:  #8d3b3b .4s, opacity .4s;
-  }
+    cursor: pointer;                       
+}
+
+.header-toggle:hover{
+    height: 50px;
+    width: 50px;
+    background: var(gray);
+    color: var(gray);
+    border-radius: 40%;
+}
 
 .navbar .navmenu{
     display: flex;
@@ -274,9 +280,13 @@ header .navbar {
     column-gap: 1rem;
     color: var(--text-color);
     padding-left: 2rem;
-    transition: color .4s, opacity .4s;
+    transition: color .4s, opacity .4s;          /*                      */
 }
-  
+
+.sidebar-link:hover {
+    color: var(--first-color);
+}
+
 .sidebar-link i {
     font-size: 1.25rem;
 }
@@ -285,10 +295,7 @@ header .navbar {
     font-weight: var(--font-semi-bold);
 }
   
-.sidebar-link:hover {
-    color: var(--first-color);
-}
-  
+
 .sidebar-actions {
     margin-top: auto;
 }
@@ -323,3 +330,4 @@ header .navbar {
     height: 20px;
     background-color: var(--first-color);
 }
+
